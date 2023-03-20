@@ -14,9 +14,6 @@ Question : Write a program to reverse a string
               2. String can also be reversed by converting it to array, then joining it after reversing
 */
 
-
-const str = "JavaScript is awesome"
-
 function reverseAString(str) {
     // write your solution here
     let strArr = str.split("")
@@ -30,4 +27,20 @@ function reverseAString(str) {
     return strArr.join("");
 }
 
-console.log(`Reversed string is: ${reverseAString(str)}`)
+// console.log(`Reversed string is: ${reverseAString("JavaScript is awesome")}`)
+
+
+
+function reverseGivenInteger(num) {
+    // write your solution here
+    let ans = 0;
+    while(num > 0) {
+      let rem = num % 10 ;
+      ans = (ans * 10) + rem;
+      num = Math.floor(num/10);
+    }
+    return ans
+}
+
+console.log(`Reversed integer is: ${reverseGivenInteger(3849)}`)
+

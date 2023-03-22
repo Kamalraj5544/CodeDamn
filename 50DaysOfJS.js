@@ -52,13 +52,13 @@ function reverseAString(str) {
 
 
 
-// Day 3 challange
+// Day 4 challange
 
 // Write a function which can convert the time input given in 12 hours format to 24 hours format
 
 function convertTo24HrsFormat(time) {
   // write your solution here
-
+  
   if(time.endsWith("AM") && time.slice(0,2) === "12"){
     return "00"+time.slice(2,5);
   }else if (time.endsWith("AM") && time.length === 6){
@@ -74,7 +74,25 @@ function convertTo24HrsFormat(time) {
 
 }
 
-console.log(`Converted time: ${convertTo24HrsFormat("5:00AM")}`)
+// console.log(`Converted time: ${convertTo24HrsFormat("5:00AM")}`)
+
+
+// Day 5 challange
+
+// Write a function which accepts a string argument and 
+// returns the count of characters between the first and last character 'X'
+
+
+function getTheGapX(str) {
+  // write your solution here
+  let s = str.indexOf('X');
+  let e = str.lastIndexOf('X');
+
+  if(s < 0 && e < 0 ) return -1
+  return e-s;
+}
+
+console.log(`Gap between the X's: ${getTheGapX("Xamarin")}`)
 
 
 

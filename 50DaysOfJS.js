@@ -77,7 +77,6 @@ function convertTo24HrsFormat(time) {
 // console.log(`Converted time: ${convertTo24HrsFormat("5:00AM")}`)
 
 
-// Day 5 challange
 
 // Write a function which accepts a string argument and 
 // returns the count of characters between the first and last character 'X'
@@ -87,12 +86,31 @@ function getTheGapX(str) {
   // write your solution here
   let s = str.indexOf('X');
   let e = str.lastIndexOf('X');
-
+  
   if(s < 0 && e < 0 ) return -1
   return e-s;
 }
 
-console.log(`Gap between the X's: ${getTheGapX("Xamarin")}`)
+// console.log(`Gap between the X's: ${getTheGapX("Xamarin")}`)
 
 
+// Day 6 challange
+
+// Write a function to truncate a string to a certain number of word
+
+const str = 'JavaScript is simple but not easy to master';
+const wordLimit = 3
+
+function truncateWithWordLimit(str, wordLimit) {
+    // write your solution here
+
+    let strArr = str.split(" ");
+    var res="";
+    for(let i= 0 ; i < wordLimit; i++){
+      res+=" "+strArr[i];
+    }
+    return res.substring(1);
+}
+
+console.log(`Truncated string: ${truncateWithWordLimit(str, wordLimit)}`)
 

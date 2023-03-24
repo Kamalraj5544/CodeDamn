@@ -96,6 +96,7 @@ function getTheGapX(str) {
 
 // Day 6 challange
 
+
 // Write a function to truncate a string to a certain number of word
 
 const str = 'JavaScript is simple but not easy to master';
@@ -112,5 +113,24 @@ function truncateWithWordLimit(str, wordLimit) {
     return res.substring(1);
 }
 
-console.log(`Truncated string: ${truncateWithWordLimit(str, wordLimit)}`)
+// console.log(`Truncated string: ${truncateWithWordLimit(str, wordLimit)}`)
+
+
+// Day 7 challange
+
+// Create a regular expression to validate if the given input is valid Indian mobile number or not
+
+const number = '+91 9876543210';
+
+function validateMobile(number) {
+    // write your solution here
+    var expr = /^(\+?)((0|91)?)(\s?)?[6-9]\d{9}$/;
+
+    if(expr.test(number)) return true;
+
+    return false;
+}
+
+console.log(`is a valid Indian mobile number: ${validateMobile(number)}`)
+
 

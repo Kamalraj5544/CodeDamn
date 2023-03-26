@@ -134,6 +134,21 @@ function getDaysBetweenDates(dateText1, dateText2) {
   return requiredDays
 }
 
-console.log(
-  `Days difference: ${getDaysBetweenDates("10/15/2020", "12/1/2020")}`
-);
+// console.log(
+//   `Days difference: ${getDaysBetweenDates("10/15/2020", "12/1/2020")}`
+// );
+
+
+// Day 9 challange :
+
+// Write a function to check if an object is empty or not in javaScript?
+
+const obj = { key: 1 };
+
+function isEmpty(obj) {
+    // write your solution here
+
+    return Object.keys(obj).length === 0;
+}
+
+console.log(`is empty object: ${isEmpty(obj)}`)

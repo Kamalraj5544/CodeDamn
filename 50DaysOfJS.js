@@ -171,4 +171,18 @@ function removeArrayElement(filterField) {
   return filteredArray;
 }
 
-console.log(`filtered array: ${removeArrayElement("id")}`);
+// console.log(`filtered array: ${removeArrayElement("id")}`);
+
+
+
+  // Day 10 challange :
+
+  // Return the N-th value of the Fibonacci sequence
+
+  function fibonacci(n) {
+    // write your solution here
+
+    return (n < 2 ) ? n : fibonacci(n-1)+fibonacci(n-2);
+  }
+  
+  console.log(`fibonacci value at position 5: ${fibonacci(5)}`)

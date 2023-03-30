@@ -173,16 +173,98 @@ function removeArrayElement(filterField) {
 
 // console.log(`filtered array: ${removeArrayElement("id")}`);
 
+// Day 11 challange :
 
+// Return the N-th value of the Fibonacci sequence
 
-  // Day 10 challange :
+function fibonacci(n) {
+  // write your solution here
 
-  // Return the N-th value of the Fibonacci sequence
+  return n < 2 ? n : fibonacci(n - 1) + fibonacci(n - 2);
+}
 
-  function fibonacci(n) {
-    // write your solution here
+// console.log(`fibonacci value at position 5: ${fibonacci(5)}`)
 
-    return (n < 2 ) ? n : fibonacci(n-1)+fibonacci(n-2);
+// Day 12 challange :\
+
+// Given a number from 0 to 999,999,999,999, spell out that number in English.
+
+function getBet0and99(num) {
+  const ones = [
+    "",
+    "one",
+    "two",
+    "three",
+    "four",
+    "five",
+    "six",
+    "seven",
+    "eight",
+    "nine",
+    "ten",
+    "eleven",
+    "twelve",
+    "thirteen",
+    "fourteen",
+    "fifteen",
+    "sixteen",
+    "seventeen",
+    "eighteen",
+    "nineteen",
+  ];
+
+  const multiplesOfTen = [
+    "",
+    "",
+    "twenty",
+    "thirty",
+    "forty",
+    "fifty",
+    "sixty",
+    "seventy",
+    "eighty",
+    "ninety",
+  ];
+
+  if (num <= 19) {
+    return ones[num];
+  } else {
+    return multiplesOfTen[Math.floor(num / 10) % 10] + "-" + ones[num % 10];
   }
-  
-  console.log(`fibonacci value at position 5: ${fibonacci(5)}`)
+}
+
+const sayNumberInEnglish = (n) => {
+  // Write your solution here
+
+  if (n < 100) return getBet0and99(n);
+
+  const scales = ["hundred", "thousand", "million", "billion"];
+
+  let temp = n;
+  let chunks = [];
+  while (temp > 0) {
+    chunks.push(temp % 1000);
+    temp = Math.floor(temp / 1000);
+  }
+
+  let ans = "";
+
+  for (let i = 0; i < chunks.length; i++) {
+    let hun = Math.floor(chunks[i] / 100);
+    if (hun > 0) {
+      ans =
+        getBet0and99(hun) +
+        " " +
+        scales[0] +
+        " " +
+        getBet0and99(chunks[i] - hun * 100)  +
+        ans;
+    } else {
+      ans = getBet0and99(chunks[i]) + " " + ans;
+    }
+    ans = (i !== chunks.length - 1 ? scales[i + 1] : "") + " " + ans;
+  }
+  return ans.trim();
+};
+
+console.log(`5635 in english is: ${sayNumberInEnglish(14)}`);

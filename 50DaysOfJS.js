@@ -185,7 +185,7 @@ function fibonacci(n) {
 
 // console.log(`fibonacci value at position 5: ${fibonacci(5)}`)
 
-// Day 12 challange :\
+// Day 12 challange :
 
 // Given a number from 0 to 999,999,999,999, spell out that number in English.
 
@@ -267,4 +267,51 @@ const sayNumberInEnglish = (n) => {
   return ans.trim();
 };
 
-console.log(`5635 in english is: ${sayNumberInEnglish(14)}`);
+// console.log(`5635 in english is: ${sayNumberInEnglish(14)}`);
+
+  
+
+// Day 13 challange :
+
+
+// Convert given seconds to space age on all planets of our solar system
+
+
+
+const spaceAge = (seconds) => {
+	const yearsInAllPlanets = {
+		Mercury: 0,
+		Venus: 0,
+		Earth: 0,
+		Mars: 0,
+		Jupiter: 0,
+		Saturn: 0,
+		Uranus: 0,
+		Neptune: 0,
+	}
+	const earthYearsInAllPlanets = {
+		Mercury: 0.2408467,
+		Venus: 0.61519726,
+		Earth: 1,
+		Mars: 1.8808158,
+		Jupiter: 11.862615,
+		Saturn: 29.447498,
+		Uranus: 84.016846 ,
+		Neptune: 164.79132,
+	}
+
+	// Your solution starts here
+
+  const earthYears = seconds/(60*60*24*365.25)
+
+  for(const key in yearsInAllPlanets){
+    yearsInAllPlanets[key] = +((earthYears/earthYearsInAllPlanets[key]).toFixed(2)); 
+  }
+  // console.log(key, yearsInAllPlanets[key])
+
+	// Your solution ends here
+
+	return yearsInAllPlanets
+}
+
+console.log(spaceAge(Math.round(Math.random() * 99999999)))

@@ -314,7 +314,7 @@ const spaceAge = (seconds) => {
 	return yearsInAllPlanets
 }
 
-console.log(spaceAge(Math.round(Math.random() * 99999999)))
+// console.log(spaceAge(Math.round(Math.random() * 99999999)))
 
 
 
@@ -339,4 +339,40 @@ const convertDigitsToAskedBase = (digits, baseA, baseB) => {
 }
 
 
-console.log(convertDigitsToAskedBase([5,8],10,16))
+// console.log(convertDigitsToAskedBase([5,8],10,16))
+
+
+
+
+// Day 15 challange :
+
+// Determine if a sentence is a pangram
+
+// Instructions:
+
+// Determine if a sentence is a pangram. A pangram (Greek: παν γράμμα, pan gramma, "every letter") 
+// is a sentence using every letter of the alphabet at least once. The best known English pangram is:
+
+// The quick brown fox jumps over the lazy dog.
+
+// The alphabet used consists of ASCII letters a to z, inclusive, 
+// and is case insensitive. Input will not contain non-ASCII symbols.
+
+
+const isPangram = (input) => {
+	// Code here
+  const pangramArr = new Array(26).fill(0);
+  const inputStr = input.toLowerCase()
+
+  for (let i = 0; i < inputStr.length; i++) {
+    const element = inputStr.charCodeAt(i);
+    if(element >= "a".charCodeAt(0)  && element <= "z".charCodeAt(0)) {
+      pangramArr[element - "a".charCodeAt(0)]++;
+    }
+  }
+
+
+	return pangramArr.every((c) => c >=1)
+}
+
+console.log(isPangram("The quick brown fox jumps over the lazy dog."))

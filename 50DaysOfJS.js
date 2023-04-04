@@ -379,7 +379,6 @@ const isPangram = (input) => {
 
 // Day 16 challange :
 
-
 // Ask the Bob
 
 // Instructions
@@ -403,25 +402,61 @@ function hey(message) {
   // Code here
   let pureLetterString = ""
   message.split("").forEach(character => {
-      if(/[a-zA-Z]/.test(character)){
-          pureLetterString += character
-      }
+    if(/[a-zA-Z]/.test(character)){
+      pureLetterString += character
+    }
   })
-
+  
   if(isUpper(pureLetterString) && message.trim().charAt(message.length-1) === '?'){
-      return "Calm down, I know what I'm doing!"
+    return "Calm down, I know what I'm doing!"
   }
   else if(isUpper(pureLetterString)){
-      return "Whoa, chill out!"
+    return "Whoa, chill out!"
   }
   else if(message.trim().charAt(message.length-1) === '?'){
-      return "Sure."
+    return "Sure."
   }
   else if(message === ""){
-      return "Fine. Be that way!"
+    return "Fine. Be that way!"
   }
-
+  
   return "Whatever."
 }
 
-console.log(hey('How are you?'))
+// console.log(hey('How are you?'))
+
+
+
+// Day 17 challange :
+
+// Longest Consecutive Sequence
+// Given an array of elements, find a subsequence in the array such that all the elements 
+// in the sequence are consecutive irrespective of their order.
+
+const longestConsecutiveSequence = (inputArray) => {
+	// Your code here
+
+  let set = new Set();
+
+  for (let i = 0; i < inputArray.length; i++) {
+    set.add(inputArray[i]);    
+  }
+  
+  let ans = 0;
+
+  for (let i = 0; i < inputArray.length; i++) {
+    let count = 1;
+    let nextElement = inputArray[i]+1;
+
+    while(set.has(nextElement)) {
+      count++;
+      nextElement++;
+    }
+
+    ans = ans >= count ? ans : count;
+  }
+
+	return ans;
+}
+
+console.log(longestConsecutiveSequence([0,3,7,2,5,8,4,6,0,1]))

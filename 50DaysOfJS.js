@@ -459,4 +459,22 @@ const longestConsecutiveSequence = (inputArray) => {
 	return ans;
 }
 
-console.log(longestConsecutiveSequence([0,3,7,2,5,8,4,6,0,1]))
+// console.log(longestConsecutiveSequence([0,3,7,2,5,8,4,6,0,1]))
+
+
+
+// Day 18 challange :
+
+// Calculate Grains on a given square on a chessboard
+
+
+const totalGrains = () => {
+	// Code here
+  return BigInt(Math.pow(2,64))-1n;
+}
+
+const grainsOn = (input) => {
+  return BigInt(Math.pow(2,input-1))
+}
+console.log(`Grains on 5th square: ${grainsOn(5)}`)
+console.log(`Total grains upto 5th square: ${totalGrains(5)}`)

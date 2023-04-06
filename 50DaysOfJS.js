@@ -257,7 +257,7 @@ const sayNumberInEnglish = (n) => {
         " " +
         scales[0] +
         " " +
-        getBet0and99(chunks[i] - hun * 100)  +
+        getBet0and99(chunks[i] - hun * 100) +
         ans;
     } else {
       ans = getBet0and99(chunks[i]) + " " + ans;
@@ -269,80 +269,82 @@ const sayNumberInEnglish = (n) => {
 
 // console.log(`5635 in english is: ${sayNumberInEnglish(14)}`);
 
-  
-
 // Day 13 challange :
-
 
 // Convert given seconds to space age on all planets of our solar system
 
-
-
 const spaceAge = (seconds) => {
-	const yearsInAllPlanets = {
-		Mercury: 0,
-		Venus: 0,
-		Earth: 0,
-		Mars: 0,
-		Jupiter: 0,
-		Saturn: 0,
-		Uranus: 0,
-		Neptune: 0,
-	}
-	const earthYearsInAllPlanets = {
-		Mercury: 0.2408467,
-		Venus: 0.61519726,
-		Earth: 1,
-		Mars: 1.8808158,
-		Jupiter: 11.862615,
-		Saturn: 29.447498,
-		Uranus: 84.016846 ,
-		Neptune: 164.79132,
-	}
+  const yearsInAllPlanets = {
+    Mercury: 0,
+    Venus: 0,
+    Earth: 0,
+    Mars: 0,
+    Jupiter: 0,
+    Saturn: 0,
+    Uranus: 0,
+    Neptune: 0,
+  };
+  const earthYearsInAllPlanets = {
+    Mercury: 0.2408467,
+    Venus: 0.61519726,
+    Earth: 1,
+    Mars: 1.8808158,
+    Jupiter: 11.862615,
+    Saturn: 29.447498,
+    Uranus: 84.016846,
+    Neptune: 164.79132,
+  };
 
-	// Your solution starts here
+  // Your solution starts here
 
-  const earthYears = seconds/(60*60*24*365.25)
+  const earthYears = seconds / (60 * 60 * 24 * 365.25);
 
-  for(const key in yearsInAllPlanets){
-    yearsInAllPlanets[key] = +((earthYears/earthYearsInAllPlanets[key]).toFixed(2)); 
+  for (const key in yearsInAllPlanets) {
+    yearsInAllPlanets[key] = +(
+      earthYears / earthYearsInAllPlanets[key]
+    ).toFixed(2);
   }
   // console.log(key, yearsInAllPlanets[key])
 
-	// Your solution ends here
+  // Your solution ends here
 
-	return yearsInAllPlanets
-}
+  return yearsInAllPlanets;
+};
 
 // console.log(spaceAge(Math.round(Math.random() * 99999999)))
-
-
 
 // Day 14 challange :
 
 // Convert given array of digits of a base to another asked base
 
-
-const convertToBase = (num, base, numLength = 1 + ~~(Math.log(num) / Math.log(base))) =>
-    numLength ? [...convertToBase(num / base | 0, base, numLength - 1), num % base] : [];
+const convertToBase = (
+  num,
+  base,
+  numLength = 1 + ~~(Math.log(num) / Math.log(base))
+) =>
+  numLength
+    ? [...convertToBase((num / base) | 0, base, numLength - 1), num % base]
+    : [];
 
 const convertDigitsToAskedBase = (digits, baseA, baseB) => {
-	if (baseA <= 1 || baseA % 1) throw new Error('Wrong input base')
-	if (baseB <= 1 || baseB % 1) throw new Error('Wrong output base')
-	if ([!digits.length, digits.length > 1 && digits[0] === 0, digits.some((digit) => digit < 0 || digit >= baseA)].some((assertion) => assertion))
-		throw new Error('Input has wrong format')
-	// Convert digits in base a to base 10 then convert that number to base b.
-	return convertToBase(
-		digits.reduce((num, digit) => digit + num * baseA),
-		baseB
-	)
-}
-
+  if (baseA <= 1 || baseA % 1) throw new Error("Wrong input base");
+  if (baseB <= 1 || baseB % 1) throw new Error("Wrong output base");
+  if (
+    [
+      !digits.length,
+      digits.length > 1 && digits[0] === 0,
+      digits.some((digit) => digit < 0 || digit >= baseA),
+    ].some((assertion) => assertion)
+  )
+    throw new Error("Input has wrong format");
+  // Convert digits in base a to base 10 then convert that number to base b.
+  return convertToBase(
+    digits.reduce((num, digit) => digit + num * baseA),
+    baseB
+  );
+};
 
 // console.log(convertDigitsToAskedBase([5,8],10,16))
-
-
-
 
 // Day 15 challange :
 
@@ -350,30 +352,28 @@ const convertDigitsToAskedBase = (digits, baseA, baseB) => {
 
 // Instructions:
 
-// Determine if a sentence is a pangram. A pangram (Greek: παν γράμμα, pan gramma, "every letter") 
+// Determine if a sentence is a pangram. A pangram (Greek: παν γράμμα, pan gramma, "every letter")
 // is a sentence using every letter of the alphabet at least once. The best known English pangram is:
 
 // The quick brown fox jumps over the lazy dog.
 
-// The alphabet used consists of ASCII letters a to z, inclusive, 
+// The alphabet used consists of ASCII letters a to z, inclusive,
 // and is case insensitive. Input will not contain non-ASCII symbols.
 
-
 const isPangram = (input) => {
-	// Code here
+  // Code here
   const pangramArr = new Array(26).fill(0);
-  const inputStr = input.toLowerCase()
+  const inputStr = input.toLowerCase();
 
   for (let i = 0; i < inputStr.length; i++) {
     const element = inputStr.charCodeAt(i);
-    if(element >= "a".charCodeAt(0)  && element <= "z".charCodeAt(0)) {
+    if (element >= "a".charCodeAt(0) && element <= "z".charCodeAt(0)) {
       pangramArr[element - "a".charCodeAt(0)]++;
     }
   }
 
-
-	return pangramArr.every((c) => c >=1)
-}
+  return pangramArr.every((c) => c >= 1);
+};
 
 // console.log(isPangram("The quick brown fox jumps over the lazy dog."))
 
@@ -395,60 +395,58 @@ const isPangram = (input) => {
 // He answers 'Whatever.' to anything else.
 
 const isUpper = (string) => {
-  return !/[a-z]/.test(string) && /[A-Z]/.test(string)
-}
+  return !/[a-z]/.test(string) && /[A-Z]/.test(string);
+};
 
 function hey(message) {
   // Code here
-  let pureLetterString = ""
-  message.split("").forEach(character => {
-    if(/[a-zA-Z]/.test(character)){
-      pureLetterString += character
+  let pureLetterString = "";
+  message.split("").forEach((character) => {
+    if (/[a-zA-Z]/.test(character)) {
+      pureLetterString += character;
     }
-  })
-  
-  if(isUpper(pureLetterString) && message.trim().charAt(message.length-1) === '?'){
-    return "Calm down, I know what I'm doing!"
+  });
+
+  if (
+    isUpper(pureLetterString) &&
+    message.trim().charAt(message.length - 1) === "?"
+  ) {
+    return "Calm down, I know what I'm doing!";
+  } else if (isUpper(pureLetterString)) {
+    return "Whoa, chill out!";
+  } else if (message.trim().charAt(message.length - 1) === "?") {
+    return "Sure.";
+  } else if (message === "") {
+    return "Fine. Be that way!";
   }
-  else if(isUpper(pureLetterString)){
-    return "Whoa, chill out!"
-  }
-  else if(message.trim().charAt(message.length-1) === '?'){
-    return "Sure."
-  }
-  else if(message === ""){
-    return "Fine. Be that way!"
-  }
-  
-  return "Whatever."
+
+  return "Whatever.";
 }
 
 // console.log(hey('How are you?'))
 
-
-
 // Day 17 challange :
 
 // Longest Consecutive Sequence
-// Given an array of elements, find a subsequence in the array such that all the elements 
+// Given an array of elements, find a subsequence in the array such that all the elements
 // in the sequence are consecutive irrespective of their order.
 
 const longestConsecutiveSequence = (inputArray) => {
-	// Your code here
+  // Your code here
 
   let set = new Set();
 
   for (let i = 0; i < inputArray.length; i++) {
-    set.add(inputArray[i]);    
+    set.add(inputArray[i]);
   }
-  
+
   let ans = 0;
 
   for (let i = 0; i < inputArray.length; i++) {
     let count = 1;
-    let nextElement = inputArray[i]+1;
+    let nextElement = inputArray[i] + 1;
 
-    while(set.has(nextElement)) {
+    while (set.has(nextElement)) {
       count++;
       nextElement++;
     }
@@ -456,25 +454,66 @@ const longestConsecutiveSequence = (inputArray) => {
     ans = ans >= count ? ans : count;
   }
 
-	return ans;
-}
+  return ans;
+};
 
 // console.log(longestConsecutiveSequence([0,3,7,2,5,8,4,6,0,1]))
-
-
 
 // Day 18 challange :
 
 // Calculate Grains on a given square on a chessboard
 
-
 const totalGrains = () => {
-	// Code here
-  return BigInt(Math.pow(2,64))-1n;
-}
+  // Code here
+  return BigInt(Math.pow(2, 64)) - 1n;
+};
 
 const grainsOn = (input) => {
-  return BigInt(Math.pow(2,input-1))
-}
-console.log(`Grains on 5th square: ${grainsOn(5)}`)
-console.log(`Total grains upto 5th square: ${totalGrains(5)}`)
+  return BigInt(Math.pow(2, input - 1));
+};
+
+// console.log(`Grains on 5th square: ${grainsOn(5)}`)
+// console.log(`Total grains upto 5th square: ${totalGrains(5)}`)
+
+// Day 19 challange
+
+// Resistor Color map
+
+// These colors are encoded as follows:
+
+// Black: 0
+// Brown: 1
+// Red: 2
+// Orange: 3
+// Yellow: 4
+// Green: 5
+// Blue: 6
+// Violet: 7
+// Grey: 8
+// White: 9
+
+// The goal of this exercise is to create a way:
+
+// to look up the numerical value associated with a particular color band
+// to list the different band colors
+
+const colorCode = (color) => {
+  // Code here
+
+  let resistorColorObj = {
+    black: 0,
+    brown: 1,
+    red: 2,
+    orange: 3,
+    yellow: 4,
+    green: 5,
+    blue: 6,
+    violet: 7,
+    grey: 8,
+    white: 9,
+  };
+
+  return resistorColorObj[color];
+};
+
+console.log(colorCode("white"));

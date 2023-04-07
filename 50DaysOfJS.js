@@ -499,7 +499,7 @@ const grainsOn = (input) => {
 
 const colorCode = (color) => {
   // Code here
-
+  
   let resistorColorObj = {
     black: 0,
     brown: 1,
@@ -516,4 +516,18 @@ const colorCode = (color) => {
   return resistorColorObj[color];
 };
 
-console.log(colorCode("white"));
+// console.log(colorCode("white"));
+
+
+
+
+// Day 19 challange
+
+// Add two numbers
+
+const addTwoNumbers = (a, b) => {
+	// code here
+	return a+b;
+}
+
+console.log(addTwoNumbers(5,8))

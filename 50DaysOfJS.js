@@ -521,7 +521,7 @@ const colorCode = (color) => {
 
 
 
-// Day 19 challange
+// Day 20 challange
 
 // Add two numbers
 
@@ -530,4 +530,24 @@ const addTwoNumbers = (a, b) => {
 	return a+b;
 }
 
-console.log(addTwoNumbers(5,8))
+// console.log(addTwoNumbers(5,8))
+
+
+
+
+// Day 21 challange
+
+// Union of Two Arrays
+// Write the code for the function which returns the the union of the two given arrays
+
+const unionOfArrays = (arr1, arr2) => {
+  // code below here
+  const unionArr = [...arr1];
+
+  for (let i = 0; i < arr2.length; i++) {
+    !unionArr.includes(arr2[i]) && unionArr.push(arr2[i]); ;
+  }
+  return unionArr;
+};
+
+console.log(`The union is ${unionOfArrays([1, 2, 34, 45, 3], [3, 24, 21])}`);

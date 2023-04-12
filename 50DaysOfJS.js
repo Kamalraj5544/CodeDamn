@@ -592,4 +592,30 @@ function findEvenIndex(arr) {
 }
 
 
-console.log(findEvenIndex([1,2,3,4,3,2,1]))
+// console.log(findEvenIndex([1,2,3,4,3,2,1]))
+
+
+// Day 24 challange 
+
+// Write Number in Expanded Form
+
+// For example:
+// expandedForm(12);  Should return '10+2'
+// expandedForm(42);  Should return '40+2'
+
+
+function expandedForm(num) {
+  // Your code here
+  let ans="";
+  let tenses = 1;
+  while ( num > 0){
+    let rem = num % 10;
+    ans = (rem * tenses) +(tenses === 1 ? "" : "+")+ ans;
+    tenses*= 10;
+    num = Math.floor(num / 10);
+  }
+  console.log(ans)
+  return ans;
+}
+
+expandedForm(734);  

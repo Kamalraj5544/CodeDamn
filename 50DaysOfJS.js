@@ -568,4 +568,28 @@ let uniqueInOrder = (iterable) => {
   return [...iterable].filter((a, i) => a !== iterable[i-1])
 };
 
-console.log(uniqueInOrder("AABbCcd"))
+// console.log(uniqueInOrder("AABbCcd"))
+
+
+
+// Day 23 challange 
+
+// Equal Sides Of An Array
+
+// You are going to be given an array of integers. Your job is to take that array and 
+// find an index N where the sum of the integers to the left of N is equal to the 
+// sum of the integers to the right of N. If there is no index that would make this happen, return -1.
+
+
+function findEvenIndex(arr) {
+  //Code goes here!
+  for (let i = 1; i < arr.length - 1 ; i++) {
+    const leftSum = [...arr.slice(0,i)].reduce((acc,curr) => acc + curr)
+    const rightSum = [...arr.slice(i+1,arr.length)].reduce((acc,curr) => acc + curr)
+    if(leftSum == rightSum) return i;
+  }
+  return -1;
+}
+
+
+console.log(findEvenIndex([1,2,3,4,3,2,1]))

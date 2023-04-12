@@ -550,4 +550,22 @@ const unionOfArrays = (arr1, arr2) => {
   return unionArr;
 };
 
-console.log(`The union is ${unionOfArrays([1, 2, 34, 45, 3], [3, 24, 21])}`);
+// console.log(`The union is ${unionOfArrays([1, 2, 34, 45, 3], [3, 24, 21])}`);
+
+
+// Day 22 challange
+
+// Unique In Order
+
+// Implement the function unique_in_order which takes as argument a 
+// sequence and returns a list of items without any elements with the
+//  same value next to each other and preserving the original order of elements.
+
+
+let uniqueInOrder = (iterable) => {
+  //your code here - remember iterable can be a string or an array
+
+  return [...iterable].filter((a, i) => a !== iterable[i-1])
+};
+
+console.log(uniqueInOrder("AABbCcd"))

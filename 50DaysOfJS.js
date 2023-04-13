@@ -614,8 +614,38 @@ function expandedForm(num) {
     tenses*= 10;
     num = Math.floor(num / 10);
   }
-  console.log(ans)
   return ans;
 }
 
-expandedForm(734);  
+
+// Day 25 challange 
+
+// Stop gninnipS My sdroW!
+
+// Write a function that takes in a string of one or more words, 
+// and returns the same string, but with all five or more letter 
+// words reversed (Just like the name of this Kata). Strings passed in 
+// will consist of only letters and spaces. 
+// Spaces will be included only when more than one word is present.
+
+function spinWords(string) {
+
+  function reverseString(str){
+    let strArr = str.split("");
+    for (let i = 0; i < strArr.length / 2; i++) {
+      const temp = strArr[i];
+      strArr[i] = strArr[strArr.length - 1 - i];
+      strArr[strArr.length - 1 - i] = temp;
+    }
+    return strArr.join("");
+  }
+
+  let words = string.split(" ");
+  for (let i = 0; i < words.length; i++) {
+    const element = words[i];
+    if(element.length >= 5){
+      words[i] = reverseString(element);
+    }
+  }
+  return words.join(" ");
+}

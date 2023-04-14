@@ -649,3 +649,33 @@ function spinWords(string) {
   }
   return words.join(" ");
 }
+
+
+// Day 26 challange 
+
+// Find the odd int
+
+// Given an array of integers, find the one that appears an odd number of times.
+
+
+function findOdd(arr) {
+  let obj = {};
+  for (let i = 0; i < arr.length; i++) {
+    if(obj[arr[i]] != undefined){
+      let c = obj[arr[i]];
+      c++;
+      obj[arr[i]] = c;
+    }else {
+      obj[arr[i]] = 1;
+    }
+  }
+
+  for (const iterator of Object.keys(obj)) {
+    // console.log(iterator)
+    if(obj[iterator] % 2 !== 0) return +iterator;
+  }
+  return 0;
+}
+
+
+console.log(typeof findOdd([5,4,3,2,1,5,4,3,2,10,10]))

@@ -669,7 +669,7 @@ function findOdd(arr) {
       obj[arr[i]] = 1;
     }
   }
-
+  
   for (const iterator of Object.keys(obj)) {
     // console.log(iterator)
     if(obj[iterator] % 2 !== 0) return +iterator;
@@ -678,4 +678,35 @@ function findOdd(arr) {
 }
 
 
-console.log(typeof findOdd([5,4,3,2,1,5,4,3,2,10,10]))
+// console.log( findOdd([5,4,3,2,1,5,4,3,2,10,10]))
+
+
+// Day 27 challange 
+// Vowel Count
+
+// Return the number (count) of vowels in the given string.
+
+// We will consider a, e, i, o, u as vowels
+
+// The input can consit of Lower case and upper case letters so make sure to count both of them.
+
+
+
+function getCount(str) {
+  let vowelsCount = 0;
+  // enter your magic here
+  let strArr = [...str];
+
+  for (let i = 0; i < strArr.length; i++) {
+    const ch = strArr[i];
+    if(ch == 'A' || ch == 'E' ||
+    ch == 'I' || ch == 'O' ||
+    ch == 'U' || ch == 'a' || ch == 'e' ||
+    ch == 'i' || ch == 'o' ||
+    ch == 'u') vowelsCount++;
+  }
+
+  return vowelsCount;
+}
+
+console.log(getCount("abracadabra"));

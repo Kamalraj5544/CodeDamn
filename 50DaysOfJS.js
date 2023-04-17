@@ -732,6 +732,31 @@ function toWeirdCase(string) {
   return strArr.join("");
  }
 
-console.log(
-  `The weird case of ${"A test case"} is ${toWeirdCase("A test case")}`
-);
+// console.log(
+//   `The weird case of ${"A test case"} is ${toWeirdCase("A test case")}`
+// );
+
+// Day 29 challange
+
+// Mumbling
+
+// Each char becomes n*chars where n is the index + 1, 
+// and the first char is capitalized divided by - instead of space.
+
+// Example: accum("ZpglnRxqenU") 
+// should return "Z-Pp-Ggg-Llll-Nnnnn-Rrrrrr-Xxxxxxx-Qqqqqqqq-Eeeeeeeee-Nnnnnnnnnn-Uuuuuuuuuuu"
+
+function accum(s) {
+  // your code goes below
+  let strArr = [...s].map((ch,i) => {
+    let temp = ch.toUpperCase();
+    let c = 0;
+    while( c++ < i){
+      temp+= ch.toLowerCase();
+    }
+    return temp;
+  })
+  return strArr.join("-");
+}
+
+console.log(accum("kaMal"))

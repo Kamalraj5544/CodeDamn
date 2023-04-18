@@ -499,7 +499,7 @@ const grainsOn = (input) => {
 
 const colorCode = (color) => {
   // Code here
-  
+
   let resistorColorObj = {
     black: 0,
     brown: 1,
@@ -518,22 +518,16 @@ const colorCode = (color) => {
 
 // console.log(colorCode("white"));
 
-
-
-
 // Day 20 challange
 
 // Add two numbers
 
 const addTwoNumbers = (a, b) => {
-	// code here
-	return a+b;
-}
+  // code here
+  return a + b;
+};
 
 // console.log(addTwoNumbers(5,8))
-
-
-
 
 // Day 21 challange
 
@@ -545,57 +539,52 @@ const unionOfArrays = (arr1, arr2) => {
   const unionArr = [...arr1];
 
   for (let i = 0; i < arr2.length; i++) {
-    !unionArr.includes(arr2[i]) && unionArr.push(arr2[i]); ;
+    !unionArr.includes(arr2[i]) && unionArr.push(arr2[i]);
   }
   return unionArr;
 };
 
 // console.log(`The union is ${unionOfArrays([1, 2, 34, 45, 3], [3, 24, 21])}`);
 
-
 // Day 22 challange
 
 // Unique In Order
 
-// Implement the function unique_in_order which takes as argument a 
+// Implement the function unique_in_order which takes as argument a
 // sequence and returns a list of items without any elements with the
 //  same value next to each other and preserving the original order of elements.
-
 
 let uniqueInOrder = (iterable) => {
   //your code here - remember iterable can be a string or an array
 
-  return [...iterable].filter((a, i) => a !== iterable[i-1])
+  return [...iterable].filter((a, i) => a !== iterable[i - 1]);
 };
 
 // console.log(uniqueInOrder("AABbCcd"))
 
-
-
-// Day 23 challange 
+// Day 23 challange
 
 // Equal Sides Of An Array
 
-// You are going to be given an array of integers. Your job is to take that array and 
-// find an index N where the sum of the integers to the left of N is equal to the 
+// You are going to be given an array of integers. Your job is to take that array and
+// find an index N where the sum of the integers to the left of N is equal to the
 // sum of the integers to the right of N. If there is no index that would make this happen, return -1.
-
 
 function findEvenIndex(arr) {
   //Code goes here!
-  for (let i = 1; i < arr.length - 1 ; i++) {
-    const leftSum = [...arr.slice(0,i)].reduce((acc,curr) => acc + curr)
-    const rightSum = [...arr.slice(i+1,arr.length)].reduce((acc,curr) => acc + curr)
-    if(leftSum == rightSum) return i;
+  for (let i = 1; i < arr.length - 1; i++) {
+    const leftSum = [...arr.slice(0, i)].reduce((acc, curr) => acc + curr);
+    const rightSum = [...arr.slice(i + 1, arr.length)].reduce(
+      (acc, curr) => acc + curr
+    );
+    if (leftSum == rightSum) return i;
   }
   return -1;
 }
 
-
 // console.log(findEvenIndex([1,2,3,4,3,2,1]))
 
-
-// Day 24 challange 
+// Day 24 challange
 
 // Write Number in Expanded Form
 
@@ -603,34 +592,31 @@ function findEvenIndex(arr) {
 // expandedForm(12);  Should return '10+2'
 // expandedForm(42);  Should return '40+2'
 
-
 function expandedForm(num) {
   // Your code here
-  let ans="";
+  let ans = "";
   let tenses = 1;
-  while ( num > 0){
+  while (num > 0) {
     let rem = num % 10;
-    ans = (rem * tenses) +(tenses === 1 ? "" : "+")+ ans;
-    tenses*= 10;
+    ans = rem * tenses + (tenses === 1 ? "" : "+") + ans;
+    tenses *= 10;
     num = Math.floor(num / 10);
   }
   return ans;
 }
 
-
-// Day 25 challange 
+// Day 25 challange
 
 // Stop gninnipS My sdroW!
 
-// Write a function that takes in a string of one or more words, 
-// and returns the same string, but with all five or more letter 
-// words reversed (Just like the name of this Kata). Strings passed in 
-// will consist of only letters and spaces. 
+// Write a function that takes in a string of one or more words,
+// and returns the same string, but with all five or more letter
+// words reversed (Just like the name of this Kata). Strings passed in
+// will consist of only letters and spaces.
 // Spaces will be included only when more than one word is present.
 
 function spinWords(string) {
-
-  function reverseString(str){
+  function reverseString(str) {
     let strArr = str.split("");
     for (let i = 0; i < strArr.length / 2; i++) {
       const temp = strArr[i];
@@ -643,45 +629,41 @@ function spinWords(string) {
   let words = string.split(" ");
   for (let i = 0; i < words.length; i++) {
     const element = words[i];
-    if(element.length >= 5){
+    if (element.length >= 5) {
       words[i] = reverseString(element);
     }
   }
   return words.join(" ");
 }
 
-
-// Day 26 challange 
+// Day 26 challange
 
 // Find the odd int
 
 // Given an array of integers, find the one that appears an odd number of times.
 
-
 function findOdd(arr) {
   let obj = {};
   for (let i = 0; i < arr.length; i++) {
-    if(obj[arr[i]] != undefined){
+    if (obj[arr[i]] != undefined) {
       let c = obj[arr[i]];
       c++;
       obj[arr[i]] = c;
-    }else {
+    } else {
       obj[arr[i]] = 1;
     }
   }
-  
+
   for (const iterator of Object.keys(obj)) {
     // console.log(iterator)
-    if(obj[iterator] % 2 !== 0) return +iterator;
+    if (obj[iterator] % 2 !== 0) return +iterator;
   }
   return 0;
 }
 
-
 // console.log( findOdd([5,4,3,2,1,5,4,3,2,10,10]))
 
-
-// Day 27 challange 
+// Day 27 challange
 // Vowel Count
 
 // Return the number (count) of vowels in the given string.
@@ -690,8 +672,6 @@ function findOdd(arr) {
 
 // The input can consit of Lower case and upper case letters so make sure to count both of them.
 
-
-
 function getCount(str) {
   let vowelsCount = 0;
   // enter your magic here
@@ -699,11 +679,19 @@ function getCount(str) {
 
   for (let i = 0; i < strArr.length; i++) {
     const ch = strArr[i];
-    if(ch == 'A' || ch == 'E' ||
-    ch == 'I' || ch == 'O' ||
-    ch == 'U' || ch == 'a' || ch == 'e' ||
-    ch == 'i' || ch == 'o' ||
-    ch == 'u') vowelsCount++;
+    if (
+      ch == "A" ||
+      ch == "E" ||
+      ch == "I" ||
+      ch == "O" ||
+      ch == "U" ||
+      ch == "a" ||
+      ch == "e" ||
+      ch == "i" ||
+      ch == "o" ||
+      ch == "u"
+    )
+      vowelsCount++;
   }
 
   return vowelsCount;
@@ -711,26 +699,24 @@ function getCount(str) {
 
 // console.log(getCount("abracadabra"));
 
-
 // Day 28 challange
 
 // WeIrD StRiNg CaSe
 
-// Write a function toWeirdCase that accepts a string, and returns 
-// the same string with all even indexed characters in each word upper cased, 
-// and all odd indexed characters in each word lower cased. 
+// Write a function toWeirdCase that accepts a string, and returns
+// the same string with all even indexed characters in each word upper cased,
+// and all odd indexed characters in each word lower cased.
 // The indexing just explained is zero based, so the zero-ith index is even,
 //  therefore that character should be upper cased and you need to start over for each word.
 
-
 function toWeirdCase(string) {
   // Your code goes here
-  let strArr = [...string].map((c,i) => {
-    if( i % 2 == 0) return c.toUpperCase();
+  let strArr = [...string].map((c, i) => {
+    if (i % 2 == 0) return c.toUpperCase();
     else return c.toLowerCase();
-  })
+  });
   return strArr.join("");
- }
+}
 
 // console.log(
 //   `The weird case of ${"A test case"} is ${toWeirdCase("A test case")}`
@@ -740,23 +726,40 @@ function toWeirdCase(string) {
 
 // Mumbling
 
-// Each char becomes n*chars where n is the index + 1, 
+// Each char becomes n*chars where n is the index + 1,
 // and the first char is capitalized divided by - instead of space.
 
-// Example: accum("ZpglnRxqenU") 
+// Example: accum("ZpglnRxqenU")
 // should return "Z-Pp-Ggg-Llll-Nnnnn-Rrrrrr-Xxxxxxx-Qqqqqqqq-Eeeeeeeee-Nnnnnnnnnn-Uuuuuuuuuuu"
 
 function accum(s) {
   // your code goes below
-  let strArr = [...s].map((ch,i) => {
+  let strArr = [...s].map((ch, i) => {
     let temp = ch.toUpperCase();
     let c = 0;
-    while( c++ < i){
-      temp+= ch.toLowerCase();
+    while (c++ < i) {
+      temp += ch.toLowerCase();
     }
     return temp;
-  })
+  });
   return strArr.join("-");
 }
 
-console.log(accum("kaMal"))
+// console.log(accum("kaMal"))
+
+// Day 30 challange
+// Mexican Wave
+
+// wave("hello") returns the array ["Hello", "hEllo", "heLlo", "helLo", "hellO"]
+
+function wave(str) {
+  // Your Code goes below
+  return [...str]
+    .map((ch, i) => {
+      let temp = ch.toUpperCase();
+      return str.substring(0, i) + temp + str.substring(i + 1, str.length);
+    })
+    .filter((words) => words !== str);
+}
+
+console.log(wave("two words"));

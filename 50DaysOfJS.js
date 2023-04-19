@@ -762,4 +762,16 @@ function wave(str) {
     .filter((words) => words !== str);
 }
 
-console.log(wave("two words"));
+// console.log(wave("two words"));
+
+
+// Day 31 challange
+
+// Write a Program to Find the Factorial of a Number\
+
+function factorial(n) {
+	// write your code here
+	return n === 1 ? 1 : n *factorial(n-1);
+}
+
+console.log("The factorial of " + "4" + " is " + factorial(5));

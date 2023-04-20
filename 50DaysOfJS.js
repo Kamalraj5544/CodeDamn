@@ -770,8 +770,26 @@ function wave(str) {
 // Write a Program to Find the Factorial of a Number\
 
 function factorial(n) {
-	// write your code here
+  // write your code here
 	return n === 1 ? 1 : n *factorial(n-1);
 }
 
-console.log("The factorial of " + "4" + " is " + factorial(5));
+// console.log("The factorial of " + "4" + " is " + factorial(5));
+
+
+
+
+// Day 32 challange
+
+// Write a program to find the greatest common divisor (gcd) of two positive numbers.
+
+function gcd(a, b) {
+	// write your code here
+  if(a === b ) return a
+	return a > b ? gcd(a-b,b) : gcd(a,b-a);
+}
+
+const a = 2154
+const b = 458
+
+console.log("The GCD of " + a + " ", b + " is " + gcd(a, b));

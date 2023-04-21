@@ -792,4 +792,20 @@ function gcd(a, b) {
 const a = 2154
 const b = 458
 
-console.log("The GCD of " + a + " ", b + " is " + gcd(a, b));
+// console.log("The GCD of " + a + " ", b + " is " + gcd(a, b));
+ 
+
+
+// Day 33 challange
+
+// Write a program to print unique values from an array
+function set(arrOfNum) {
+	// write your code here
+  let ans=[]
+	arrOfNum.forEach((a)=> !ans.includes(a) && ans.push(a))
+  return ans;
+}
+
+const arrOfNum = [1, 2, 2, 4, 5, 6, 6];
+
+console.log("result is + " + set(arrOfNum));

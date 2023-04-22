@@ -808,4 +808,34 @@ function set(arrOfNum) {
 
 const arrOfNum = [1, 2, 2, 4, 5, 6, 6];
 
-console.log("result is + " + set(arrOfNum));
+// console.log("result is + " + set(arrOfNum));
+
+
+// Day 34 challange
+// Write a program to find the most frequent item of an array
+
+function mostFreq(arr) {
+  let countobj = {}
+
+  for (let i = 0; i < arr.length; i++) {
+    const element = arr[i];
+    if(countobj[element] != undefined) {
+      let count = countobj[element];
+      count++;
+      countobj[element] = count;
+    }else{
+      countobj[element] = 1;
+    }
+  }
+  let maxCount = 0;
+  let element ;
+  for (const iterator of Object.keys(countobj)) {
+    let prevMaxCount = maxCount;
+    maxCount = maxCount < countobj[iterator] ? countobj[iterator] : maxCount
+    element = prevMaxCount != maxCount ? iterator : element;
+  }
+  return `${element} ${maxCount}`;
+}
+  
+  
+  console.log(mostFreq([1, 2, 2, 4, 5, 6, 6]));

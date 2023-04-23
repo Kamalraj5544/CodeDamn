@@ -838,4 +838,22 @@ function mostFreq(arr) {
 }
   
   
-  console.log(mostFreq([1, 2, 2, 4, 5, 6, 6]));
+  // console.log(mostFreq([1, 2, 2, 4, 5, 6, 6]));
+
+
+
+  // Day 35 challange
+
+  // Write a JavaScript function to get nth largest element from an unsorted array.
+
+  function nthlargest(arr, highest) {
+	// write your code here
+  arr.sort((a,b) => b-a);
+  // console.log(arr)
+	return arr[highest-1]
+}
+
+const arr1 = [43, 56, 23, 89, 88, 90, 99, 652];
+const highest = 4;
+
+console.log(nthlargest(arr1, highest));

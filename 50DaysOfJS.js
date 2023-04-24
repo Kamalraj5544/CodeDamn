@@ -856,4 +856,35 @@ function mostFreq(arr) {
 const arr1 = [43, 56, 23, 89, 88, 90, 99, 652];
 const highest = 4;
 
-console.log(nthlargest(arr1, highest));
+// console.log(nthlargest(arr1, highest));
+
+
+  // Day 36 challange
+
+  // Given a DNA strand, return its RNA complement (per RNA transcription).
+
+//   Given a DNA strand, its transcribed RNA strand 
+//   is formed by replacing each nucleotide with its complement:
+
+// G -> C
+// C -> G
+// T -> A
+// A -> U
+
+
+const transcription = (dna) => {
+	// code here
+  let rnaObj = {
+    "G" : "C",
+    "C":"G",
+    "T":"A",
+    "A":"U",
+  }
+  let ans="";
+  for (let i = 0; i < dna.length; i++) {
+    ans+= rnaObj[dna.charAt(i)];
+  }
+	return ans;
+}
+
+console.log(transcription("GATC"))

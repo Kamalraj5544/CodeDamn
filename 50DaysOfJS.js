@@ -887,4 +887,16 @@ const transcription = (dna) => {
 	return ans;
 }
 
-console.log(transcription("GATC"))
+// console.log(transcription("GATC"))
+
+
+  // Day 37 challange
+
+  // Given a year, report if it is a leap year.
+
+  const isLeap = (year) => {
+    // code here
+
+    return year%400 === 0 ? true : year%100 === 0 ? false : year%4 === 0 ? true : false;
+  }
+  

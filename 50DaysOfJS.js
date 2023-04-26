@@ -764,45 +764,39 @@ function wave(str) {
 
 // console.log(wave("two words"));
 
-
 // Day 31 challange
 
 // Write a Program to Find the Factorial of a Number\
 
 function factorial(n) {
   // write your code here
-	return n === 1 ? 1 : n *factorial(n-1);
+  return n === 1 ? 1 : n * factorial(n - 1);
 }
 
 // console.log("The factorial of " + "4" + " is " + factorial(5));
-
-
-
 
 // Day 32 challange
 
 // Write a program to find the greatest common divisor (gcd) of two positive numbers.
 
 function gcd(a, b) {
-	// write your code here
-  if(a === b ) return a
-	return a > b ? gcd(a-b,b) : gcd(a,b-a);
+  // write your code here
+  if (a === b) return a;
+  return a > b ? gcd(a - b, b) : gcd(a, b - a);
 }
 
-const a = 2154
-const b = 458
+const a = 2154;
+const b = 458;
 
 // console.log("The GCD of " + a + " ", b + " is " + gcd(a, b));
- 
-
 
 // Day 33 challange
 
 // Write a program to print unique values from an array
 function set(arrOfNum) {
-	// write your code here
-  let ans=[]
-	arrOfNum.forEach((a)=> !ans.includes(a) && ans.push(a))
+  // write your code here
+  let ans = [];
+  arrOfNum.forEach((a) => !ans.includes(a) && ans.push(a));
   return ans;
 }
 
@@ -810,47 +804,43 @@ const arrOfNum = [1, 2, 2, 4, 5, 6, 6];
 
 // console.log("result is + " + set(arrOfNum));
 
-
 // Day 34 challange
 // Write a program to find the most frequent item of an array
 
 function mostFreq(arr) {
-  let countobj = {}
+  let countobj = {};
 
   for (let i = 0; i < arr.length; i++) {
     const element = arr[i];
-    if(countobj[element] != undefined) {
+    if (countobj[element] != undefined) {
       let count = countobj[element];
       count++;
       countobj[element] = count;
-    }else{
+    } else {
       countobj[element] = 1;
     }
   }
   let maxCount = 0;
-  let element ;
+  let element;
   for (const iterator of Object.keys(countobj)) {
     let prevMaxCount = maxCount;
-    maxCount = maxCount < countobj[iterator] ? countobj[iterator] : maxCount
+    maxCount = maxCount < countobj[iterator] ? countobj[iterator] : maxCount;
     element = prevMaxCount != maxCount ? iterator : element;
   }
   return `${element} ${maxCount}`;
 }
-  
-  
-  // console.log(mostFreq([1, 2, 2, 4, 5, 6, 6]));
 
+// console.log(mostFreq([1, 2, 2, 4, 5, 6, 6]));
 
+// Day 35 challange
 
-  // Day 35 challange
+// Write a JavaScript function to get nth largest element from an unsorted array.
 
-  // Write a JavaScript function to get nth largest element from an unsorted array.
-
-  function nthlargest(arr, highest) {
-	// write your code here
-  arr.sort((a,b) => b-a);
+function nthlargest(arr, highest) {
+  // write your code here
+  arr.sort((a, b) => b - a);
   // console.log(arr)
-	return arr[highest-1]
+  return arr[highest - 1];
 }
 
 const arr1 = [43, 56, 23, 89, 88, 90, 99, 652];
@@ -858,12 +848,11 @@ const highest = 4;
 
 // console.log(nthlargest(arr1, highest));
 
+// Day 36 challange
 
-  // Day 36 challange
+// Given a DNA strand, return its RNA complement (per RNA transcription).
 
-  // Given a DNA strand, return its RNA complement (per RNA transcription).
-
-//   Given a DNA strand, its transcribed RNA strand 
+//   Given a DNA strand, its transcribed RNA strand
 //   is formed by replacing each nucleotide with its complement:
 
 // G -> C
@@ -871,32 +860,53 @@ const highest = 4;
 // T -> A
 // A -> U
 
-
 const transcription = (dna) => {
-	// code here
+  // code here
   let rnaObj = {
-    "G" : "C",
-    "C":"G",
-    "T":"A",
-    "A":"U",
-  }
-  let ans="";
+    G: "C",
+    C: "G",
+    T: "A",
+    A: "U",
+  };
+  let ans = "";
   for (let i = 0; i < dna.length; i++) {
-    ans+= rnaObj[dna.charAt(i)];
+    ans += rnaObj[dna.charAt(i)];
   }
-	return ans;
-}
+  return ans;
+};
 
 // console.log(transcription("GATC"))
 
+// Day 37 challange
 
-  // Day 37 challange
+// Given a year, report if it is a leap year.
 
-  // Given a year, report if it is a leap year.
+const isLeap = (year) => {
+  // code here
 
-  const isLeap = (year) => {
-    // code here
+  return year % 400 === 0
+    ? true
+    : year % 100 === 0
+    ? false
+    : year % 4 === 0
+    ? true
+    : false;
+};
 
-    return year%400 === 0 ? true : year%100 === 0 ? false : year%4 === 0 ? true : false;
-  }
-  
+// Day 38 challange
+
+// Given a number determine whether or not it is valid per the Luhn formula.
+
+const valid = (string) => {
+  // code here
+  let str = string.replaceAll(" ","").split("").map((num,i)=> {
+    if(i % 2 === 0 ){
+      if( +num >= 5) return +num*2-9;
+      return +num*2;
+    }
+    return +num;
+  })
+  return str.reduce((a,c) => c+a) % 10 === 0;
+};
+
+console.log(valid("4539 3195 0343 6467"))

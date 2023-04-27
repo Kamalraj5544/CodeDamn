@@ -909,4 +909,58 @@ const valid = (string) => {
   return str.reduce((a,c) => c+a) % 10 === 0;
 };
 
-console.log(valid("4539 3195 0343 6467"))
+// console.log(valid("4539 3195 0343 6467"))
+
+
+// Day 39 challange
+
+// 1. Determine how long it takes to mix a juice
+
+
+const timeToMixJuice = (name) => {
+	// code here
+  let timeObj = {
+    'Pure Strawberry Joy' : .5,
+    'Energizer' : 1.5,
+    'Green Garden' : 1.5,
+    'Tropical Island' : 3,
+    'All or Nothing' : 5,
+  }
+	return timeObj[name] !== undefined ? timeObj[name] : 2.5;
+ }
+
+//  2. Replenish the lime wedge supply
+
+
+const limesToCut = (wedgesNeeded, limes) => {
+	// code here
+  let  slicesObj = {
+    "small" : 6,
+    "medium" : 8,
+    "large" : 10
+  }
+  let i = 0;
+  while(wedgesNeeded > 0){
+    wedgesNeeded -= slicesObj[limes[i++]]
+  }
+	return i;
+}
+
+// 3. Finish up the shift
+
+const remainingOrders = (timeLeft, orders) => {
+	// code here
+  let timeObj = {
+    'Pure Strawberry Joy' : .5,
+    'Energizer' : 1.5,
+    'Green Garden' : 1.5,
+    'Tropical Island' : 3,
+    'All or Nothing' : 5,
+  }
+  let i = 0;
+
+  while(timeLeft >= 0){
+    timeLeft -= timeObj[orders[i++]]
+  }
+	return i > orders.length ? [] : orders.slice(i,orders.length);
+}

@@ -964,3 +964,30 @@ const remainingOrders = (timeLeft, orders) => {
   }
 	return i > orders.length ? [] : orders.slice(i,orders.length);
 }
+
+
+// Day 40 challange
+
+// 1. Determine if you will need a drivers licence 
+
+const needsLicense = (kind) => {
+	// code here
+
+	return kind ==='car' || kind ==='truck' ? true : false;
+}
+
+//2. Choose between two potential vehicles to buy
+
+const chooseVehicle = (option1, option2) => {
+	// code here
+  let cars = [option1,option2]
+  cars.sort();
+  console.log(cars[0])
+	return cars[0] + " is clearly the better choice.";
+}
+
+const calculateResellPrice = (originalPrice, age) => {
+	// code here
+  const discount = age < 3 ? .8 : age > 10 ? .5 : .7;
+	return discount*originalPrice;
+}

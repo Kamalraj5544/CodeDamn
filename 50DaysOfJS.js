@@ -991,3 +991,21 @@ const calculateResellPrice = (originalPrice, age) => {
   const discount = age < 3 ? .8 : age > 10 ? .5 : .7;
 	return discount*originalPrice;
 }
+
+
+
+// Day 41 challange
+
+function openOrSenior(data) {
+  // your code goes below
+  return data.map( x => x[0] >= 55 && x[1] > 7 ? "Senior" : "Open");
+}
+
+let output = openOrSenior([
+  [45, 12],
+  [55, 21],
+  [19, -2],
+  [104, 20],
+]);
+
+console.log(output);

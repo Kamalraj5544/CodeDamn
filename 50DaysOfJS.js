@@ -1008,4 +1008,28 @@ let output = openOrSenior([
   [104, 20],
 ]);
 
-console.log(output);
+// console.log(output);
+
+
+
+  // Day 42 challange
+
+  // Sum of two lowest positive integers
+
+  function sumTwoSmallestNumbers(numbers) {
+    //Code below
+    let min1= numbers[0] < numbers[1] ? numbers[0] : numbers[1];
+    let min2= numbers[0] < numbers[1] ? numbers[1] : numbers[0];
+    for (let i = 2; i < numbers.length; i++) {
+      const element = numbers[i];
+      if(element < min2 && element < min1) {
+        min2 = min1;
+        min1 = element;
+      } else if ( element > min1 && element < min2){
+        min2 = element;
+      }
+    }
+    return min1+min2;
+  }
+
+  console.log(sumTwoSmallestNumbers([5, 8, 12, 19, 22]))

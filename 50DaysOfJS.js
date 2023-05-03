@@ -1013,7 +1013,7 @@ let output = openOrSenior([
 
 
   // Day 42 challange
-
+  
   // Sum of two lowest positive integers
 
   function sumTwoSmallestNumbers(numbers) {
@@ -1033,3 +1033,28 @@ let output = openOrSenior([
   }
 
   console.log(sumTwoSmallestNumbers([5, 8, 12, 19, 22]))
+
+
+
+  // Day 43 challange
+  // Highest Scoring Word
+
+  function high(x) {
+    //code your magic here
+    let str = x.split(' ');
+    let strValue = 0;
+    let ans= "";
+    for (let i = 0; i < str.length; i++) {
+      const element = str[i];
+
+      let strArr = [...element];
+      let currValue = strArr.reduce((acc, curr) =>curr.charCodeAt(0) - "a".charCodeAt(0) + acc ,0)
+      if( currValue > strValue) {
+        strValue = currValue;
+        ans = element
+      }
+    }
+    return ans;
+}
+
+console.log(high("man i need a taxi up to ubud"))

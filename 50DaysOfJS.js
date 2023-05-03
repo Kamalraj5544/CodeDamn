@@ -1032,13 +1032,13 @@ let output = openOrSenior([
     return min1+min2;
   }
 
-  console.log(sumTwoSmallestNumbers([5, 8, 12, 19, 22]))
+  // console.log(sumTwoSmallestNumbers([5, 8, 12, 19, 22]))
 
 
 
   // Day 43 challange
   // Highest Scoring Word
-
+  
   function high(x) {
     //code your magic here
     let str = x.split(' ');
@@ -1057,4 +1057,20 @@ let output = openOrSenior([
     return ans;
 }
 
-console.log(high("man i need a taxi up to ubud"))
+// console.log(high("man i need a taxi up to ubud"))
+
+
+  // Day 44 challange
+  // Count the divisors of a number
+
+  function getDivisorsCnt(num) {
+    // code below
+    let ans = 2;
+    for (let i = 2; i <= Math.floor(num/2); i++) {
+      if( num % i === 0) ans++;
+    }
+    // console.log(ans);
+    return ans;
+  }
+  
+  console.log(getDivisorsCnt(10))

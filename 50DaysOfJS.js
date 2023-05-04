@@ -899,106 +899,103 @@ const isLeap = (year) => {
 
 const valid = (string) => {
   // code here
-  let str = string.replaceAll(" ","").split("").map((num,i)=> {
-    if(i % 2 === 0 ){
-      if( +num >= 5) return +num*2-9;
-      return +num*2;
-    }
-    return +num;
-  })
-  return str.reduce((a,c) => c+a) % 10 === 0;
+  let str = string
+    .replaceAll(" ", "")
+    .split("")
+    .map((num, i) => {
+      if (i % 2 === 0) {
+        if (+num >= 5) return +num * 2 - 9;
+        return +num * 2;
+      }
+      return +num;
+    });
+  return str.reduce((a, c) => c + a) % 10 === 0;
 };
 
 // console.log(valid("4539 3195 0343 6467"))
-
 
 // Day 39 challange
 
 // 1. Determine how long it takes to mix a juice
 
-
 const timeToMixJuice = (name) => {
-	// code here
+  // code here
   let timeObj = {
-    'Pure Strawberry Joy' : .5,
-    'Energizer' : 1.5,
-    'Green Garden' : 1.5,
-    'Tropical Island' : 3,
-    'All or Nothing' : 5,
-  }
-	return timeObj[name] !== undefined ? timeObj[name] : 2.5;
- }
+    "Pure Strawberry Joy": 0.5,
+    Energizer: 1.5,
+    "Green Garden": 1.5,
+    "Tropical Island": 3,
+    "All or Nothing": 5,
+  };
+  return timeObj[name] !== undefined ? timeObj[name] : 2.5;
+};
 
 //  2. Replenish the lime wedge supply
 
-
 const limesToCut = (wedgesNeeded, limes) => {
-	// code here
-  let  slicesObj = {
-    "small" : 6,
-    "medium" : 8,
-    "large" : 10
-  }
+  // code here
+  let slicesObj = {
+    small: 6,
+    medium: 8,
+    large: 10,
+  };
   let i = 0;
-  while(wedgesNeeded > 0){
-    wedgesNeeded -= slicesObj[limes[i++]]
+  while (wedgesNeeded > 0) {
+    wedgesNeeded -= slicesObj[limes[i++]];
   }
-	return i;
-}
+  return i;
+};
 
 // 3. Finish up the shift
 
 const remainingOrders = (timeLeft, orders) => {
-	// code here
+  // code here
   let timeObj = {
-    'Pure Strawberry Joy' : .5,
-    'Energizer' : 1.5,
-    'Green Garden' : 1.5,
-    'Tropical Island' : 3,
-    'All or Nothing' : 5,
-  }
+    "Pure Strawberry Joy": 0.5,
+    Energizer: 1.5,
+    "Green Garden": 1.5,
+    "Tropical Island": 3,
+    "All or Nothing": 5,
+  };
   let i = 0;
 
-  while(timeLeft >= 0){
-    timeLeft -= timeObj[orders[i++]]
+  while (timeLeft >= 0) {
+    timeLeft -= timeObj[orders[i++]];
   }
-	return i > orders.length ? [] : orders.slice(i,orders.length);
-}
-
+  return i > orders.length ? [] : orders.slice(i, orders.length);
+};
 
 // Day 40 challange
 
-// 1. Determine if you will need a drivers licence 
+// 1. Determine if you will need a drivers licence
 
 const needsLicense = (kind) => {
-	// code here
+  // code here
 
-	return kind ==='car' || kind ==='truck' ? true : false;
-}
+  return kind === "car" || kind === "truck" ? true : false;
+};
 
 //2. Choose between two potential vehicles to buy
 
 const chooseVehicle = (option1, option2) => {
-	// code here
-  let cars = [option1,option2]
+  // code here
+  let cars = [option1, option2];
   cars.sort();
-  console.log(cars[0])
-	return cars[0] + " is clearly the better choice.";
-}
+  console.log(cars[0]);
+  return cars[0] + " is clearly the better choice.";
+};
 
 const calculateResellPrice = (originalPrice, age) => {
-	// code here
-  const discount = age < 3 ? .8 : age > 10 ? .5 : .7;
-	return discount*originalPrice;
-}
-
-
+  // code here
+  const discount = age < 3 ? 0.8 : age > 10 ? 0.5 : 0.7;
+  return discount * originalPrice;
+};
 
 // Day 41 challange
 
 function openOrSenior(data) {
   // your code goes below
-  return data.map( x => x[0] >= 55 && x[1] > 7 ? "Senior" : "Open");
+  return data.map((x) => (x[0] >= 55 && x[1] > 7 ? "Senior" : "Open"));
 }
 
 let output = openOrSenior([
@@ -1010,67 +1007,84 @@ let output = openOrSenior([
 
 // console.log(output);
 
+// Day 42 challange
 
+// Sum of two lowest positive integers
 
-  // Day 42 challange
-  
-  // Sum of two lowest positive integers
-
-  function sumTwoSmallestNumbers(numbers) {
-    //Code below
-    let min1= numbers[0] < numbers[1] ? numbers[0] : numbers[1];
-    let min2= numbers[0] < numbers[1] ? numbers[1] : numbers[0];
-    for (let i = 2; i < numbers.length; i++) {
-      const element = numbers[i];
-      if(element < min2 && element < min1) {
-        min2 = min1;
-        min1 = element;
-      } else if ( element > min1 && element < min2){
-        min2 = element;
-      }
+function sumTwoSmallestNumbers(numbers) {
+  //Code below
+  let min1 = numbers[0] < numbers[1] ? numbers[0] : numbers[1];
+  let min2 = numbers[0] < numbers[1] ? numbers[1] : numbers[0];
+  for (let i = 2; i < numbers.length; i++) {
+    const element = numbers[i];
+    if (element < min2 && element < min1) {
+      min2 = min1;
+      min1 = element;
+    } else if (element > min1 && element < min2) {
+      min2 = element;
     }
-    return min1+min2;
   }
+  return min1 + min2;
+}
 
-  // console.log(sumTwoSmallestNumbers([5, 8, 12, 19, 22]))
+// console.log(sumTwoSmallestNumbers([5, 8, 12, 19, 22]))
 
+// Day 43 challange
+// Highest Scoring Word
 
+function high(x) {
+  //code your magic here
+  let str = x.split(" ");
+  let strValue = 0;
+  let ans = "";
+  for (let i = 0; i < str.length; i++) {
+    const element = str[i];
 
-  // Day 43 challange
-  // Highest Scoring Word
-  
-  function high(x) {
-    //code your magic here
-    let str = x.split(' ');
-    let strValue = 0;
-    let ans= "";
-    for (let i = 0; i < str.length; i++) {
-      const element = str[i];
-
-      let strArr = [...element];
-      let currValue = strArr.reduce((acc, curr) =>curr.charCodeAt(0) - "a".charCodeAt(0) + acc ,0)
-      if( currValue > strValue) {
-        strValue = currValue;
-        ans = element
-      }
+    let strArr = [...element];
+    let currValue = strArr.reduce(
+      (acc, curr) => curr.charCodeAt(0) - "a".charCodeAt(0) + acc,
+      0
+    );
+    if (currValue > strValue) {
+      strValue = currValue;
+      ans = element;
     }
-    return ans;
+  }
+  return ans;
 }
 
 // console.log(high("man i need a taxi up to ubud"))
 
+// Day 44 challange
+// Count the divisors of a number
 
-  // Day 44 challange
-  // Count the divisors of a number
-
-  function getDivisorsCnt(num) {
-    // code below
-    let ans = 2;
-    for (let i = 2; i <= Math.floor(num/2); i++) {
-      if( num % i === 0) ans++;
-    }
-    // console.log(ans);
-    return ans;
+function getDivisorsCnt(num) {
+  // code below
+  let ans = 2;
+  for (let i = 2; i <= Math.floor(num / 2); i++) {
+    if (num % i === 0) ans++;
   }
-  
-  console.log(getDivisorsCnt(10))
+  // console.log(ans);
+  return ans;
+}
+
+// console.log(getDivisorsCnt(10))
+
+// Day 45 challange
+
+// Find The Parity Outlier
+
+function findOutlier(integers) {
+  let oddArr = [];
+  let evenArr = [];
+
+  for (let i = 0; i < integers.length; i++) {
+    if (integers[i] % 2 === 0) {
+      evenArr.push(integers[i]);
+    } else {
+      oddArr.push(integers[i]);
+    }
+  }
+
+  return evenArr.length == 1 ? evenArr[0] : oddArr[0];
+}

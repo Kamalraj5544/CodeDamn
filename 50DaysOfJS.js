@@ -1088,3 +1088,18 @@ function findOutlier(integers) {
 
   return evenArr.length == 1 ? evenArr[0] : oddArr[0];
 }
+
+
+
+// Day 46 challange
+
+// A Needle in the Haystack
+
+
+function findNeedle(haystack) {
+  // your code here
+  for (let i = 0; i < haystack.length; i++) {
+    const element = haystack[i];
+     if( element === "needle" ) return "found the needle at position "+i
+  }
+}

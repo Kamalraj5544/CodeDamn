@@ -1103,3 +1103,22 @@ function findNeedle(haystack) {
      if( element === "needle" ) return "found the needle at position "+i
   }
 }
+
+
+// Day 47 challange
+
+// Isograms
+
+function isIsogram(str) {
+  // your code here
+  let strArr = [...str.toLowerCase()];
+  let array = new Array(26).fill(0);
+  for (let i = 0; i < strArr.length; i++) {
+    const element = strArr[i];
+    if(array[element.charCodeAt(0)-"a".charCodeAt(0)] >= 1) return false;
+    array[element.charCodeAt(0)-"a".charCodeAt(0)]++;
+  }
+  return true;
+}
+
+console.log(isIsogram("isogram"))

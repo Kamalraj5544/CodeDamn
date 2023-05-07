@@ -1178,4 +1178,14 @@ function formatDuration(seconds) {
   return formattedStr;
 }
 
-console.log(formatDuration(3662))
+// console.log(formatDuration(3662))
+
+
+// Day 49 challange
+
+// Is this a triangle?
+
+function isTriangle(a, b, c) {
+  // your code here
+  return a + b > c && a + c > b && c + b > a; 
+}

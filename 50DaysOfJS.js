@@ -1189,3 +1189,16 @@ function isTriangle(a, b, c) {
   // your code here
   return a + b > c && a + c > b && c + b > a; 
 }
+
+
+
+// Day 50 challange
+// Get the Middle Character
+
+function getMiddle(s) {
+  // your code here
+  let l = s.length;
+  return l % 2 === 0 ? s.substring((l/2)-1,(l/2)+1) : s.charAt(Math.floor(l/2));
+}
+
+// console.log(getMiddle("middle"))

@@ -479,24 +479,6 @@ const grainsOn = (input) => {
 
 // Resistor Color map
 
-// These colors are encoded as follows:
-
-// Black: 0
-// Brown: 1
-// Red: 2
-// Orange: 3
-// Yellow: 4
-// Green: 5
-// Blue: 6
-// Violet: 7
-// Grey: 8
-// White: 9
-
-// The goal of this exercise is to create a way:
-
-// to look up the numerical value associated with a particular color band
-// to list the different band colors
-
 const colorCode = (color) => {
   // Code here
 

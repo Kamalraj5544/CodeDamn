@@ -534,7 +534,7 @@ const unionOfArrays = (arr1, arr2) => {
 
 // Implement the function unique_in_order which takes as argument a
 // sequence and returns a list of items without any elements with the
-//  same value next to each other and preserving the original order of elements.
+// same value next to each other and preserving the original order of elements.
 
 let uniqueInOrder = (iterable) => {
   //your code here - remember iterable can be a string or an array
@@ -553,7 +553,6 @@ let uniqueInOrder = (iterable) => {
 // sum of the integers to the right of N. If there is no index that would make this happen, return -1.
 
 function findEvenIndex(arr) {
-  //Code goes here!
   for (let i = 1; i < arr.length - 1; i++) {
     const leftSum = [...arr.slice(0, i)].reduce((acc, curr) => acc + curr);
     const rightSum = [...arr.slice(i + 1, arr.length)].reduce(
@@ -621,7 +620,6 @@ function spinWords(string) {
 // Day 26 challange
 
 // Find the odd int
-
 // Given an array of integers, find the one that appears an odd number of times.
 
 function findOdd(arr) {
@@ -1071,21 +1069,17 @@ function findOutlier(integers) {
   return evenArr.length == 1 ? evenArr[0] : oddArr[0];
 }
 
-
-
 // Day 46 challange
 
 // A Needle in the Haystack
-
 
 function findNeedle(haystack) {
   // your code here
   for (let i = 0; i < haystack.length; i++) {
     const element = haystack[i];
-     if( element === "needle" ) return "found the needle at position "+i
+    if (element === "needle") return "found the needle at position " + i;
   }
 }
-
 
 // Day 47 challange
 
@@ -1097,8 +1091,8 @@ function isIsogram(str) {
   let array = new Array(26).fill(0);
   for (let i = 0; i < strArr.length; i++) {
     const element = strArr[i];
-    if(array[element.charCodeAt(0)-"a".charCodeAt(0)] >= 1) return false;
-    array[element.charCodeAt(0)-"a".charCodeAt(0)]++;
+    if (array[element.charCodeAt(0) - "a".charCodeAt(0)] >= 1) return false;
+    array[element.charCodeAt(0) - "a".charCodeAt(0)]++;
   }
   return true;
 }
@@ -1109,59 +1103,59 @@ function isIsogram(str) {
 
 // Human readable duration format
 
-
 function buildString(value, unit) {
   if (value > 0) {
-    return value + ' ' + unit + (value > 1 ? 's' : '') + ', ';
+    return value + " " + unit + (value > 1 ? "s" : "") + ", ";
   }
-  return '';
+  return "";
 }
-
 
 function formatDuration(seconds) {
   // your code here
 
-  if (seconds === 0) { 
+  if (seconds === 0) {
     return "now";
   }
-  let  tmpSeconds = seconds;
+  let tmpSeconds = seconds;
 
-  let oneYrInSecs = 365*24*60*60;
-  let oneDayInSecs = oneYrInSecs/365;
-  let oneHourInSecs = oneDayInSecs/24;
+  let oneYrInSecs = 365 * 24 * 60 * 60;
+  let oneDayInSecs = oneYrInSecs / 365;
+  let oneHourInSecs = oneDayInSecs / 24;
   let oneMinuteInSecs = 60;
 
-  let numYears = Math.floor(tmpSeconds/oneYrInSecs);
-  tmpSeconds -= numYears*oneYrInSecs;
-  
-  let numDays = Math.floor(tmpSeconds/oneDayInSecs);
-  tmpSeconds -= numDays*oneDayInSecs;
-  
-  let numHours = Math.floor(tmpSeconds/oneHourInSecs);
-  tmpSeconds -= numHours*oneHourInSecs;
+  let numYears = Math.floor(tmpSeconds / oneYrInSecs);
+  tmpSeconds -= numYears * oneYrInSecs;
 
-  let numMins = Math.floor(tmpSeconds/oneMinuteInSecs);
-  tmpSeconds -= numMins*oneMinuteInSecs;
+  let numDays = Math.floor(tmpSeconds / oneDayInSecs);
+  tmpSeconds -= numDays * oneDayInSecs;
 
-  let formattedStr = buildString(numYears, 'year');
-  formattedStr += buildString(numDays, 'day');
-  formattedStr += buildString(numHours, 'hour');
-  formattedStr += buildString(numMins, 'minute');
-  formattedStr += buildString(tmpSeconds, 'second');
+  let numHours = Math.floor(tmpSeconds / oneHourInSecs);
+  tmpSeconds -= numHours * oneHourInSecs;
 
-  let idx = formattedStr.lastIndexOf(', ');
+  let numMins = Math.floor(tmpSeconds / oneMinuteInSecs);
+  tmpSeconds -= numMins * oneMinuteInSecs;
+
+  let formattedStr = buildString(numYears, "year");
+  formattedStr += buildString(numDays, "day");
+  formattedStr += buildString(numHours, "hour");
+  formattedStr += buildString(numMins, "minute");
+  formattedStr += buildString(tmpSeconds, "second");
+
+  let idx = formattedStr.lastIndexOf(", ");
   formattedStr = formattedStr.substring(0, idx);
-  
+
   // replace the second last , with and
-  idx = formattedStr.lastIndexOf(', ');
+  idx = formattedStr.lastIndexOf(", ");
   if (idx > 0) {
-    formattedStr = formattedStr.substring(0, idx) + ' and ' + formattedStr.substring(idx + 2);
+    formattedStr =
+      formattedStr.substring(0, idx) +
+      " and " +
+      formattedStr.substring(idx + 2);
   }
   return formattedStr;
 }
 
 // console.log(formatDuration(3662))
-
 
 // Day 49 challange
 
@@ -1169,10 +1163,8 @@ function formatDuration(seconds) {
 
 function isTriangle(a, b, c) {
   // your code here
-  return a + b > c && a + c > b && c + b > a; 
+  return a + b > c && a + c > b && c + b > a;
 }
-
-
 
 // Day 50 challange
 // Get the Middle Character
@@ -1180,7 +1172,9 @@ function isTriangle(a, b, c) {
 function getMiddle(s) {
   // your code here
   let l = s.length;
-  return l % 2 === 0 ? s.substring((l/2)-1,(l/2)+1) : s.charAt(Math.floor(l/2));
+  return l % 2 === 0
+    ? s.substring(l / 2 - 1, l / 2 + 1)
+    : s.charAt(Math.floor(l / 2));
 }
 
 // console.log(getMiddle("middle"))
